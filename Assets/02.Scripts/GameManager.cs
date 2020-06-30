@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -52,5 +53,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     void SendMsg(string msg)
     {
         msgText.text += $"\n{msg}";
+    }
+
+    public void OnExitRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+
     }
 }

@@ -91,6 +91,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks
     void DisplayHitInfo(int _actNumber)
     {
         string userName = "";
+        
         foreach (Player player in PhotonNetwork.PlayerListOthers)
         {
             if (player.ActorNumber == _actNumber)
