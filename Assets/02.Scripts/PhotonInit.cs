@@ -46,6 +46,8 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected To Master");
         PhotonNetwork.NickName = userName;
+        
+
         //PhotonNetwork.JoinRandomRoom();
     }
 
@@ -69,5 +71,19 @@ public class PhotonInit : MonoBehaviourPunCallbacks
         {
             SceneManager.LoadScene("BattleField");
         }
+    }
+
+    public void OnCreateRoomClick()
+    {
+
+    }
+
+    public void OnJoinRandomRoomClick()
+    {
+        userName = userNameInput.text;
+        
+        PlayerPrefs.SetString("USER_NAME", userName);
+        PhotonNetwork.NickName = userName;
+        PhotonNetwork.JoinRandomRoom();
     }
 }

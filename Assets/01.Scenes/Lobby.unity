@@ -618,7 +618,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 894217633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1720165810}
+        m_MethodName: OnJoinRandomRoomClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &894217633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,6 +1429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2424d2568c23d4fa4a196bd0013368ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userNameInput: {fileID: 1857181194}
+  roomNameInput: {fileID: 1203803261}
   userName: Zackiller
   maxPlayerCount: 25
 --- !u!4 &1720165811
