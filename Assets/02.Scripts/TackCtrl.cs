@@ -82,10 +82,27 @@ public class TackCtrl : MonoBehaviourPunCallbacks
             currHp -= 10.0f;
             if (currHp <= 0.0f)
             {
+                DisplayHitInfo(coll.collider.GetComponent<Cannon>().actNumber);
                 YouDie();
             }
         }
     }
+
+    void DisplayHitInfo(int _actNumber)
+    {
+        string userName = "";
+        foreach (Player player in PhotonNetwork.PlayerListOthers)
+        {
+            if (player.ActorNumber == _actNumber)
+            {
+                userName = player.NickName;
+            }
+        }
+
+        string msg = $"[{PhotonNetwork.NickName}] is killed by [{userName}].";
+        GameManager.instance.pv.RPC("SendMsg", RpcTarget.AllBufferedViaServer, msg);
+    }
+
 
     void YouDie()
     {

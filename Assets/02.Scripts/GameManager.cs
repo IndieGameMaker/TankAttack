@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public Text msgText;
     public InputField msgInput;
-    private PhotonView pv;
+    public PhotonView pv;
 
     //Singleton Design Pattern
     void Awake()
