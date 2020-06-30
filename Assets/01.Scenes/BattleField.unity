@@ -198,7 +198,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688172361}
-  m_LocalRotation: {x: 0.09063893, y: -0.00000001713553, z: 0.0000000015592942, w: 0.9958838}
+  m_LocalRotation: {x: 0.09063893, y: -0.00000001713553, z: 0.000000001559267, w: 0.9958838}
   m_LocalPosition: {x: -54.905075, y: 21.869999, z: -24.170658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -559,57 +559,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470105850}
-  m_LocalRotation: {x: 0.09063893, y: -0.00000001713553, z: 0.0000000015592942, w: 0.9958838}
+  m_LocalRotation: {x: 0.09063893, y: -0.00000001713553, z: 0.000000001559267, w: 0.9958838}
   m_LocalPosition: {x: -54.905075, y: 21.869999, z: -24.170658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1720165809
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1720165811}
-  - component: {fileID: 1720165810}
-  m_Layer: 0
-  m_Name: PhotonInit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1720165810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720165809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2424d2568c23d4fa4a196bd0013368ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userName: Zackiller
-  maxPlayerCount: 25
---- !u!4 &1720165811
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720165809}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.905075, y: 11.59, z: -4.920657}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1877386265 stripped
 Transform:
