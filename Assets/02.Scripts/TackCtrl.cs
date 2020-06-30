@@ -61,15 +61,17 @@ public class TackCtrl : MonoBehaviourPunCallbacks
 
             if (Input.GetMouseButtonDown(0))
             {
-                pv.RPC("Fire", RpcTarget.AllViaServer);
+                int actNumber = pv.Owner.ActorNumber;
+                pv.RPC("Fire", RpcTarget.AllViaServer, actNumber);
             }
         }
     }
 
     [PunRPC]
-    void Fire()
+    void Fire(int  _actNumber)
     {
         GameObject cannon = Instantiate(cannonObj, firePos.position, firePos.rotation);
+        cannon.GetComponent<Cannon>().actNumber = _actNumber;
         cannon.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 5000.0f);
     }
 
@@ -95,6 +97,9 @@ public class TackCtrl : MonoBehaviourPunCallbacks
 
     void RespawnTank()
     {
+        //HP 초기화
+        currHp = initHp;
+
         Vector3 pos = new Vector3( Random.Range(-100, 100)
                             , 10.0f
                             , Random.Range(-100, 100));
