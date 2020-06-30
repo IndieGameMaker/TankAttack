@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - V_CAM
+  - CANNON
   layers:
   - Default
   - TransparentFX

@@ -88,5 +88,25 @@ public class TackCtrl : MonoBehaviourPunCallbacks
     void YouDie()
     {
         Debug.Log("You Die");
+        SetVisible(false);
+
+        Invoke("RespawnTank", 3.0f);
+    }
+
+    void RespawnTank()
+    {
+        Vector3 pos = new Vector3( Random.Range(-100, 100)
+                            , 10.0f
+                            , Random.Range(-100, 100));
+        tr.position = pos;
+        SetVisible(true);
+    }
+
+    void SetVisible(bool isVisible)
+    {
+        foreach (Renderer _render in GetComponentsInChildren<MeshRenderer>())
+        {
+            _render.enabled = isVisible;
+        }
     }
 }
