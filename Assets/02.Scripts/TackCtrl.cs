@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Cinemachine;
 
 public class TackCtrl : MonoBehaviourPunCallbacks
 {
-
+    private CinemachineVirtualCamera cvc;
     private Transform tr;
     private Rigidbody rb;
 
