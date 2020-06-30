@@ -76,7 +76,23 @@ public class PhotonInit : MonoBehaviourPunCallbacks
 
     public void OnCreateRoomClick()
     {
+        string roomName = "";
+        if (string.IsNullOrEmpty(roomNameInput.text))
+        {
+            roomName = "Room_" + Random.Range(1,99).ToString("00");
+        }
+        
+        userName = userNameInput.text;
 
+        PlayerPrefs.SetString("USER_NAME", userName);
+        PhotonNetwork.NickName = userName;
+
+        RoomOptions ro = new RoomOptions();
+        ro.MaxPlayers = 4;
+        ro.IsOpen = true;
+        ro.IsVisible = true;
+
+        PhotonNetwork.CreateRoom(roomName, ro);
     }
 
     public void OnJoinRandomRoomClick()
@@ -87,4 +103,6 @@ public class PhotonInit : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = userName;
         PhotonNetwork.JoinRandomRoom();
     }
+
+
 }
