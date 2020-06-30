@@ -16,15 +16,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     //Singleton Design Pattern
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else if (instance != this)
-        {
-            Destroy(this.gameObject);
-        }
+        instance = this;
+        // if (instance == null)
+        // {
+        //     instance = this;
+        //     DontDestroyOnLoad(this.gameObject);
+        // }
+        // else if (instance != this)
+        // {
+        //     Destroy(this.gameObject);
+        // }
     }
 
     void Start()
