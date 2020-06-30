@@ -51,7 +51,8 @@ public class PhotonInit : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Entered room");
+        Debug.Log("Entered room ");
+        Debug.Log(PhotonNetwork.IsMasterClient);
         if (PhotonNetwork.IsMasterClient)
         {
             SceneManager.LoadScene("BattleField");

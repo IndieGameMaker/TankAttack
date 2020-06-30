@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 26680205386353280}
   - component: {fileID: 26680205386353281}
   - component: {fileID: 6144744166379501235}
+  - component: {fileID: 131821738}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -284,3 +285,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &131821738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26680205386353282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b89c4869026422da9b1c219f84902b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
