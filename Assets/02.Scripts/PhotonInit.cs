@@ -19,6 +19,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
+        
     }
 
     void Start()
@@ -47,9 +48,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected To Master");
         PhotonNetwork.NickName = userName;
-        
-
-        //PhotonNetwork.JoinRandomRoom();
+        PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
