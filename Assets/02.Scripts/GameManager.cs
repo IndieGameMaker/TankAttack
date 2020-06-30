@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void Message()
     {
-        string msg = $"[{PhotonNetwork.NickName}] {msgInput.text}";
+        string msg = $"<color=#00ff00>[{PhotonNetwork.NickName}]</color> {msgInput.text}";
         pv.RPC("SendMsg", RpcTarget.AllBufferedViaServer);
     }
 
@@ -52,6 +52,5 @@ public class GameManager : MonoBehaviourPunCallbacks
     void SendMsg(string msg)
     {
         msgText.text += $"\n{msg}";
-
     }
 }
