@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
 public class PhotonInit : MonoBehaviourPunCallbacks
 {
+    public InputField userNameInput;
+    public InputField roomNameInput;
+
     private readonly string gameVersion = "v1.0";
     public string userName = "Zackiller";
     public byte maxPlayerCount = 25;
@@ -35,7 +39,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected To Master");
         PhotonNetwork.NickName = userName;
-        PhotonNetwork.JoinRandomRoom();
+        //PhotonNetwork.JoinRandomRoom();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
