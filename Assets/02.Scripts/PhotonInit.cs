@@ -80,6 +80,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
         if (string.IsNullOrEmpty(roomNameInput.text))
         {
             roomName = "Room_" + Random.Range(1,99).ToString("00");
+            roomNameInput.text = roomName;
         }
         
         userName = userNameInput.text;
