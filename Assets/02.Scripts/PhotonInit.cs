@@ -92,7 +92,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
         ro.IsOpen = true;
         ro.IsVisible = true;
 
-        PhotonNetwork.CreateRoom(roomName, ro);
+        PhotonNetwork.CreateRoom(roomNameInput.text, ro);
     }
 
     public void OnJoinRandomRoomClick()
