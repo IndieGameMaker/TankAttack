@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public static GameManager instance = null;
 
     public Text msgText;
+    public InputField msgInput;
     private PhotonView pv;
 
     //Singleton Design Pattern
@@ -39,5 +40,18 @@ public class GameManager : MonoBehaviourPunCallbacks
                                     , Random.Range(-100, 100));
 
         PhotonNetwork.Instantiate("Tank", pos, Quaternion.identity, 0);
+    }
+
+    public void Message()
+    {
+        string msg = $"[{PhotonNetwork.NickName}] {msgInput.text}";
+        pv.RPC("SendMsg", RpcTarget.AllBufferedViaServer);
+    }
+
+    [PunRPC]
+    void SendMsg(string msg)
+    {
+        msgText.text += $"\n{msg}";
+
     }
 }
