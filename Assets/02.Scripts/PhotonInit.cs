@@ -105,5 +105,13 @@ public class PhotonInit : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom();
     }
 
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (RoomInfo room in roomList)
+        {
+            string msg = $"{room.Name} [{room.PlayerCount}/{room.MaxPlayers}]";
+            Debug.Log(msg);
+        }
+    }
 
 }
