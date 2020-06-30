@@ -24,6 +24,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     void Start()
     {
         userName = PlayerPrefs.GetString("USER_NAME");
+        userNameInput.text = userName;
 
         if (string.IsNullOrEmpty(userName))
         {
@@ -81,7 +82,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     public void OnJoinRandomRoomClick()
     {
         userName = userNameInput.text;
-        
+
         PlayerPrefs.SetString("USER_NAME", userName);
         PhotonNetwork.NickName = userName;
         PhotonNetwork.JoinRandomRoom();
