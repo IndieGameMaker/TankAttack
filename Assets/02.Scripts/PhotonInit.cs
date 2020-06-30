@@ -34,6 +34,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected To Master");
+        PhotonNetwork.NickName = userName;
         PhotonNetwork.JoinRandomRoom();
     }
 
