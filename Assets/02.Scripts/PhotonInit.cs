@@ -23,10 +23,17 @@ public class PhotonInit : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        userName = PlayerPrefs.GetString("USER_NAME");
+
+        if (string.IsNullOrEmpty(userName))
+        {
+            userName = "Player_" + Random.Range(1, 999).ToString("000");
+            userNameInput.text = userName;
+        }
+
         if (PhotonNetwork.IsConnected)
         {
             Debug.Log("Connected");
-
         }       
         else
         {
