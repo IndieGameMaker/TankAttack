@@ -21,12 +21,24 @@ public class TackCtrl : MonoBehaviourPunCallbacks
     public Transform firePos;   //포탄의 발사 위치
 
     private PhotonView pv;
+    //Health
+    private float currHp = 100.0f;
+    private float initHp = 100.0f;
 
     void Start()
     {
         tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         pv = GetComponent<PhotonView>();
+
+        if (pv.IsMine)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("V_CAM");
+            cvc = obj.GetComponent<CinemachineVirtualCamera>();
+
+            cvc.Follow = tr;
+            cvc.LookAt = tr;
+        }
         
         /*
         if (!pv.IsMine) this.enabled = false;
@@ -59,5 +71,22 @@ public class TackCtrl : MonoBehaviourPunCallbacks
     {
         GameObject cannon = Instantiate(cannonObj, firePos.position, firePos.rotation);
         cannon.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 5000.0f);
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.collider.CompareTag("CANNON"))
+        {
+            currHp -= 10.0f;
+            if (currHp <= 0.0f)
+            {
+                YouDie();
+            }
+        }
+    }
+
+    void YouDie()
+    {
+        Debug.Log("You Die");
     }
 }
