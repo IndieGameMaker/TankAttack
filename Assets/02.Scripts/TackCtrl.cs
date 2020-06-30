@@ -48,11 +48,12 @@ public class TackCtrl : MonoBehaviourPunCallbacks
 
             if (Input.GetMouseButtonDown(0))
             {
-                Fire();
+                pv.RPC("Fire", RpcTarget.AllViaServer);
             }
         }
     }
 
+    [PunRPC]
     void Fire()
     {
         GameObject cannon = Instantiate(cannonObj, firePos.position, firePos.rotation);
