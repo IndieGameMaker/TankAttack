@@ -39,5 +39,16 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log($"Error Code = {returnCode} Msg = {message}");
+        RoomOptions ro = new RoomOptions();
+        ro.MaxPlayers = maxPlayerCount;
+        ro.IsOpen     = true;
+        ro.IsVisible  = true;
+
+        PhotonNetwork.CreateRoom("MyRoom" + Random.Range(0, 999).ToString(), ro);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        Debug.Log("Entered room");
     }
 }
