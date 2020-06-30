@@ -2,11 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
+    public static GameManager instance = null;
+
+    public Text msgText;
+    private PhotonView pv;
+
+    //Singleton Design Pattern
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     void Start()
     {
+        pv = GetComponent<PhotonView>();
+
         CreateTank();
     }
 
