@@ -89,7 +89,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = userName;
 
         RoomOptions ro = new RoomOptions();
-        ro.MaxPlayers = 4;
+        ro.MaxPlayers = 30;
         ro.IsOpen = true;
         ro.IsVisible = true;
 

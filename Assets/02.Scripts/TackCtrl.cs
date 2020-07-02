@@ -71,7 +71,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
         else
         {
             //이전 위치와 네트워크를 통해 수신된 위차의 오차가 5m 이상일 경우
-            if (Vector3.Distance(prevPos,currPos) >= 1.0f)
+            if (Vector3.Distance(prevPos,currPos) >= 5.0f)
             {
                 tr.position = currPos;
             }
