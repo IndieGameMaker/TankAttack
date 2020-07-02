@@ -5,8 +5,17 @@ using Photon.Pun;
 using Photon.Realtime;
 using Cinemachine;
 
+[System.Serializable]
+public class MyClass
+{
+    public string aaa;
+}
+
 public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
 {
+    
+    public MyClass myClass;
+
     private CinemachineVirtualCamera cvc;
     private Transform tr;
     private Rigidbody rb;
@@ -21,7 +30,9 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
     public Transform firePos;   //포탄의 발사 위치
 
     private PhotonView pv;
+
     //Health
+    [SerializeField]
     private float currHp = 100.0f;
     private float initHp = 100.0f;
 
