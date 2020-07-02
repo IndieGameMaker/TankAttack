@@ -21,7 +21,6 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        
     }
 
     void Start()
@@ -112,6 +111,8 @@ public class PhotonInit : MonoBehaviourPunCallbacks
         {
             string msg = $"{room.Name} [{room.PlayerCount}/{room.MaxPlayers}]";
             Debug.Log(msg);
+
+            GameObject _roomInfo = Instantiate(roomInfo, scrollContents);
         }
     }
 

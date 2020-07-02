@@ -1614,6 +1614,9 @@ MonoBehaviour:
   roomNameInput: {fileID: 1203803261}
   userName: Zackiller
   maxPlayerCount: 25
+  scrollContents: {fileID: 1426915595}
+  roomInfo: {fileID: 7593838838711831436, guid: 4f87c3e62d913401e9ffb6232dc2cf08,
+    type: 3}
 --- !u!4 &1720165811
 Transform:
   m_ObjectHideFlags: 0
