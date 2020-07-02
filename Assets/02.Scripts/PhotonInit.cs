@@ -121,6 +121,14 @@ public class PhotonInit : MonoBehaviourPunCallbacks
             _roomInfo.tag = "Room";
             _roomInfo.GetComponentInChildren<Text>().text = msg;
             _roomInfo.GetComponent<RoomData>().roomName = room.Name;
+            
+            _roomInfo.GetComponent<Button>().onClick.AddListener
+            (
+                () =>
+                {
+                    PhotonNetwork.JoinRoom(room.Name);
+                }
+            );
         }
     }
 
