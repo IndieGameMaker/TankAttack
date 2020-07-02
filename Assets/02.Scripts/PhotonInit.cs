@@ -113,6 +113,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
             Debug.Log(msg);
 
             GameObject _roomInfo = Instantiate(roomInfo, scrollContents);
+            _roomInfo.GetComponentInChildren<Text>().text = msg;
         }
     }
 
