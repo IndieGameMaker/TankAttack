@@ -15,6 +15,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     public string userName = "Zackiller";
     public byte maxPlayerCount = 25;
     private bool isConnected = false;
+    public Transform scrollContents;
 
     void Awake()
     {
