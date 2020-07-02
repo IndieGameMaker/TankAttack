@@ -16,6 +16,7 @@ public class PhotonInit : MonoBehaviourPunCallbacks
     public byte maxPlayerCount = 25;
     private bool isConnected = false;
     public Transform scrollContents;
+    public GameObject roomInfo;
 
     void Awake()
     {
