@@ -5,7 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using Cinemachine;
 
-public class TackCtrl : MonoBehaviourPunCallbacks
+public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
 {
     private CinemachineVirtualCamera cvc;
     private Transform tr;
@@ -24,6 +24,9 @@ public class TackCtrl : MonoBehaviourPunCallbacks
     //Health
     private float currHp = 100.0f;
     private float initHp = 100.0f;
+
+    private Vector3 currPos = Vector3.zero;
+    private Quaternion currRot = Quaternion.identity;
 
     void Start()
     {
@@ -65,7 +68,22 @@ public class TackCtrl : MonoBehaviourPunCallbacks
                 pv.RPC("Fire", RpcTarget.AllViaServer, actNumber);
             }
         }
+        else
+        {
+            //이전 위치와 네트워크를 통해 수신된 위차의 오차가 5m 이상일 경우
+            if (Vector3.Distance(prevPos,currPos) >= 5.0f)
+            {
+                tr.position = currPos;
+            }
+            else
+            {
+                tr.position = Vector3.Lerp(tr.position, currPos, Time.deltaTime * 10.0f);
+            }
+            tr.rotation = Quaternion.Slerp(tr.rotation, currRot, Time.deltaTime * 10.0f);
+        }
     }
+
+    Vector3 prevPos = Vector3.zero;
 
     [PunRPC]
     void Fire(int  _actNumber)
@@ -109,6 +127,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks
     {
         Debug.Log("You Die");
         SetVisible(false);
+        prevPos = tr.position;
 
         Invoke("RespawnTank", 3.0f);
     }
@@ -130,6 +149,20 @@ public class TackCtrl : MonoBehaviourPunCallbacks
         foreach (Renderer _render in GetComponentsInChildren<MeshRenderer>())
         {
             _render.enabled = isVisible;
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting) //송신
+        {
+            stream.SendNext(tr.position); //위치값 전송
+            stream.SendNext(tr.rotation); //회전값 전송
+        }
+        else //수신
+        {
+            currPos = (Vector3)stream.ReceiveNext();    //위치값을 수신
+            currRot = (Quaternion)stream.ReceiveNext(); //회전값 수신
         }
     }
 }
