@@ -107,13 +107,20 @@ public class PhotonInit : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Room"))
+        {
+            Destroy(obj);
+        }
+
         foreach (RoomInfo room in roomList)
         {
             string msg = $"{room.Name} [{room.PlayerCount}/{room.MaxPlayers}]";
             Debug.Log(msg);
 
             GameObject _roomInfo = Instantiate(roomInfo, scrollContents);
+            _roomInfo.tag = "Room";
             _roomInfo.GetComponentInChildren<Text>().text = msg;
+            _roomInfo.GetComponent<RoomData>().roomName = room.Name;
         }
     }
 
