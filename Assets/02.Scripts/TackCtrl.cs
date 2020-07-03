@@ -13,7 +13,7 @@ public class MyClass
 
 public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
 {
-    
+
     public MyClass myClass;
 
     private CinemachineVirtualCamera cvc;
@@ -53,7 +53,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
             cvc.Follow = tr;
             cvc.LookAt = tr;
         }
-        
+
         /*
         if (!pv.IsMine) this.enabled = false;
 
@@ -66,7 +66,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
     void Update()
     {
         if (pv.IsMine)
-        {   
+        {
             float v = Input.GetAxis("Vertical");
             float h = Input.GetAxis("Horizontal");
 
@@ -82,7 +82,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
         else
         {
             //이전 위치와 네트워크를 통해 수신된 위차의 오차가 5m 이상일 경우
-            if (Vector3.Distance(prevPos,currPos) >= 5.0f)
+            if (Vector3.Distance(prevPos, currPos) >= 5.0f)
             {
                 tr.position = currPos;
             }
@@ -97,7 +97,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
     Vector3 prevPos = Vector3.zero;
 
     [PunRPC]
-    void Fire(int  _actNumber)
+    void Fire(int _actNumber)
     {
         GameObject cannon = Instantiate(cannonObj, firePos.position, firePos.rotation);
         cannon.GetComponent<Cannon>().actNumber = _actNumber;
@@ -120,7 +120,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
     void DisplayHitInfo(int _actNumber)
     {
         string userName = "";
-        
+
         foreach (Player player in PhotonNetwork.PlayerListOthers)
         {
             if (player.ActorNumber == _actNumber)
@@ -148,9 +148,9 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
         //HP 초기화
         currHp = initHp;
 
-        Vector3 pos = new Vector3( Random.Range(-100, 100)
-                            , 10.0f
-                            , Random.Range(-100, 100));
+        Vector3 pos = new Vector3(Random.Range(-100, 100)
+        , 10.0f
+        , Random.Range(-100, 100));
         //tr.position = pos;
         prevPos = pos;
         SetVisible(true);
