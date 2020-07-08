@@ -30,6 +30,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
     public Transform firePos;   //포탄의 발사 위치
 
     private PhotonView pv;
+    private PhotonView pv2; //LJH 수정
 
     //Health
     [SerializeField]
