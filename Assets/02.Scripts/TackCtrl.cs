@@ -31,7 +31,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
 
     private PhotonView pv;
     private PhotonView pv2; //LJH 수정
-    private PhotonView pv4; //LJH
+    private PhotonView pv3; //KJH 수정
 
     //Health
     [SerializeField]
