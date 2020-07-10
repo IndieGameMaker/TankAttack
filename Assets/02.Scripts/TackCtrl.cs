@@ -13,8 +13,7 @@ public class MyClass
 
 public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
 {
-
-    public MyClass myClass;
+public MyClass myClass;
 
     private CinemachineVirtualCamera cvc;
     private Transform tr;
@@ -142,6 +141,7 @@ public class TackCtrl : MonoBehaviourPunCallbacks, IPunObservable
     void YouDie()
     {
         Debug.Log("You Die");
+        Debug.Log("You Die tow");
         SetVisible(false);
         prevPos = tr.position;
 
