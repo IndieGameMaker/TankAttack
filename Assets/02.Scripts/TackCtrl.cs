@@ -182,4 +182,12 @@ public MyClass myClass;
             currRot = (Quaternion)stream.ReceiveNext(); //회전값 수신
         }
     }
+
+    void Update()
+    {
+        Quaternion rot = Quaternion.LookRotation(targetTr.postion);
+        tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * damping);
+
+        
+    }
 }
